@@ -1,0 +1,52 @@
+messages:
+  no permission: "&c&l(!) You don't have permission for that!"
+  only players: "&c&l(!) Only player's can use that command!"
+  node destroyed: "&c&l(!) &c{TYPE} Resource Node has been destroyed!"
+  node placed: "&a&l(!) &a{TYPE} Resource Node has been placed on your island!"
+  respawn in: "&e{TYPE} Resource Node will respawn in {TIME}"
+  not harvestable: "&e{TYPE} Resource Node will respawn in {TIME}. Shift while breaking to destroy."
+  respawn in hologram: "&e{TYPE} Node will respawn in {TIME}"
+  harvestable hologram: "&a{TYPE} Node is ready to harvest!"
+  
+settings:
+  use holograms: true
+  
+nodes:
+  LOG:
+    respawn time: 60
+    harvest block: OAK_LOG
+    node block: OAK_PLANKS
+    name: "&fLog Node"
+    loot: OAK_BUTTON
+    # loot:
+    #  - "scrap:oak; &f&l*&r &f1x Wood Scrap"
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&f&lLoot"
+      # - "{LOOT}"
+      - " &f&l*&r &f1x Wood Scrap"
+      - " "
+      - "&f&lRespawn Time"
+      - " &f{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  COBBLESTONE:
+    respawn time: 60
+    harvest block: COBBLESTONE
+    node block: STONE
+    name: "&fCobblestone Node"
+    loot: STONE_BUTTON
+    # loot:
+    #  - "scrap:oak; &f&l*&r &f1x Wood Scrap"
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&f&lLoot"
+      # - "{LOOT}"
+      - " &f&l*&r &f1x Stone Scrap"
+      - " "
+      - "&f&lRespawn Time"
+      - " &f{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"

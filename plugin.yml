@@ -1,0 +1,10 @@
+name: CosmicNodes
+author: Puyodead1
+version: 1.0.0
+api-version: 1.13
+description: Cosmic Skys Nodes
+softdepend: [HolographicDisplays]
+main: me.puyodead1.cosmicnodes.CosmicNodes
+commands:
+  cosmicnodes:
+    description: main command.
