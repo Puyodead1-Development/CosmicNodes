@@ -1,7 +1,5 @@
 package me.puyodead1.cosmicnodes.events;
 
-import java.util.Objects;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
@@ -10,8 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import me.puyodead1.cosmicnodes.ActiveResourceNode;
-import me.puyodead1.cosmicnodes.utils.Node;
+import me.puyodead1.cosmicnodes.classes.ActiveResourceNode;
+import me.puyodead1.cosmicnodes.classes.Node;
 import me.puyodead1.cosmicnodes.utils.PSPlayer;
 import me.puyodead1.cosmicnodes.utils.Utils;
 
@@ -21,16 +19,16 @@ public class PlayerJoin implements Listener {
 	public void playerJoin(PlayerJoinEvent e) {
 		final long started = System.currentTimeMillis();
 		int STARTED = 0, LOADED = 0;
-		
+
 		final Player p = e.getPlayer();
 		new PSPlayer(p.getUniqueId());
-		PSPlayer pdata = PSPlayer.getPlayer(p.getUniqueId());
-		
-		ConfigurationSection section = pdata.config.getConfigurationSection("nodes");
+		final PSPlayer pdata = PSPlayer.getPlayer(p.getUniqueId());
+
+		final ConfigurationSection section = pdata.config.getConfigurationSection("nodes");
 		if (section != null && section.getKeys(false).size() != 0) {
-			for (String s : section.getKeys(false)) {
-				String path = s + ".";
-				Location location = new Location(Bukkit.getWorld(section.getString(path + "location.world")),
+			for (final String s : section.getKeys(false)) {
+				final String path = s + ".";
+				final Location location = new Location(Bukkit.getWorld(section.getString(path + "location.world")),
 						section.getDouble(path + "location.x"), section.getDouble(path + "location.y"),
 						section.getDouble(path + "location.z"));
 
@@ -40,8 +38,9 @@ public class PlayerJoin implements Listener {
 				}
 				LOADED++;
 			}
-			
-			Utils.sendConsole("&dLoaded " + LOADED + " player nodes, started " + STARTED + " valid player nodes and loaded data for player", started, true);
+
+			Utils.sendConsole("&dLoaded " + LOADED + " player nodes, started " + STARTED
+					+ " valid player nodes and loaded data for player", started, true);
 		}
 	}
 }

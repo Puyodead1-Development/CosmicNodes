@@ -1,4 +1,7 @@
 .settings/
-bin/
+target
+.externalToolBuilders
+builder.xml
+pom.xml
 .classpath
 .project

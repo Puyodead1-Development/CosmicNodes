@@ -1,0 +1,212 @@
+messages:
+  no permission: "&c&l(!) You don't have permission for that!"
+  only players: "&c&l(!) Only player's can use that command!"
+  node destroyed: "&c&l(!) &c{TYPE} Resource Node has been destroyed!"
+  node placed: "&a&l(!) &a{TYPE} Resource Node has been placed on your island!"
+  respawn in: "&e{TYPE} Resource Node will respawn in {TIME}"
+  not harvestable: "&e{TYPE} Resource Node will respawn in {TIME}. Shift while breaking to destroy."
+  respawn in hologram: "&e{TYPE} Node will respawn in {TIME}"
+  harvestable hologram: "&a{TYPE} Node is ready to harvest!"
+  not enough resources: "&cYou don't have enough resources!"
+  
+settings:
+  use holograms: true
+  auto pickup scrap: false
+  auto pickup nodes: false
+  resource only crafting: true
+  
+nodes:
+  LOG:
+    respawn time: 60
+    harvest block: OAK_LOG
+    node block: OAK_PLANKS
+    name: "&fLog Node"
+    loot: WOOD_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&f&lLoot"
+      # - "{LOOT}"
+      - " &f&l*&r &f1x Wood Scrap"
+      - " "
+      - "&f&lRespawn Time"
+      - " &f{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  COBBLESTONE:
+    respawn time: 120
+    harvest block: COBBLESTONE
+    node block: STONE
+    name: "&fCobblestone Node"
+    loot: STONE_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&f&lLoot"
+      # - "{LOOT}"
+      - " &f&l*&r &f1x Stone Scrap"
+      - " "
+      - "&f&lRespawn Time"
+      - " &f{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  COAL:
+    respawn time: 240
+    harvest block: COAL_ORE
+    node block: STONE
+    name: "&fCoal Node"
+    loot: COAL_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&f&lLoot"
+      # - "{LOOT}"
+      - " &f&l*&r &f1x Coal"
+      - " "
+      - "&f&lRespawn Time"
+      - " &f{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  IRON:
+    respawn time: 300
+    harvest block: IRON_ORE
+    node block: STONE
+    name: "&8Iron Node"
+    loot: IRON_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&8&lLoot"
+      # - "{LOOT}"
+      - " &8&l*&r &81x Iron Scrap"
+      - " "
+      - "&8&lRespawn Time"
+      - " &8{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  GOLD:
+    respawn time: 600
+    harvest block: GOLD_ORE
+    node block: STONE
+    name: "&eGold Node"
+    loot: GOLD_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&e&lLoot"
+      # - "{LOOT}"
+      - " &e&l*&r &e1x Gold Scrap"
+      - " "
+      - "&e&lRespawn Time"
+      - " &e{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+  DIAMOND:
+    respawn time: 900
+    harvest block: DIAMOND_ORE
+    node block: STONE
+    name: "&bDiamond Node"
+    loot: DIAMOND_SCRAP
+    lore:
+      - "&7Resource Node"
+      - " "
+      - "&b&lLoot"
+      # - "{LOOT}"
+      - " &b&l*&r &b1x Diamond Scrap"
+      - " "
+      - "&b&lRespawn Time"
+      - " &b{RESPAWN}"
+      - " "
+      - "&7Place this resource node on your island!"
+
+scraps:
+  WOOD:
+    item: OAK_BUTTON
+    name: "&fWood Scrap"
+    lore:
+      - "&7Resource"
+    source node: LOG
+  STONE:
+    item: STONE_BUTTON
+    name: "&fStone Scrap"
+    lore:
+      - "&7Resource"
+    source node: COBBLESTONE
+  COAL:
+    item: COAL
+    name: "&fCoal"
+    lore:
+      - "&7Resource"
+    source node: COAL
+  IRON:
+    item: LIGHT_GRAY_DYE
+    name: "&8Iron Scrap"
+    lore:
+      - "&7Resource"
+    source node: IRON
+  GOLD:
+    item: YELLOW_DYE
+    name: "&eGold Scrap"
+    lore:
+      - "&7Resource"
+    source node: GOLD
+  DIAMOND:
+    item: LIGHT_BLUE_DYE
+    name: "&bDiamond Scrap"
+    lore:
+      - "&7Resource"
+    source node: DIAMOND
+    
+resources:
+  OAK_PLANKS:
+    item: OAK_PLANKS
+    lore:
+      - "&7Resource"
+  COBBLESTONE:
+    item: COBBLESTONE
+    lore:
+      - "&7Resource"
+  IRON_INGOT:
+    item: IRON_INGOT
+    lore:
+      - "&7Resource"
+  GOLD_INGOT:
+    item: GOLD_INGOT
+    lore:
+      - "&7Resource"
+  DIAMOND:
+    item: DIAMOND
+    lore:
+      - "&7Resource"
+    
+custom crafting:
+  remove:
+    - stick
+    - oak_button
+    - stone_button
+  recipes:
+    oak_planks:
+      type: SHAPELESS
+      amount: 3
+      result: OAK_PLANKS
+      recipe: WOOD_SCRAP
+    cobblestone:
+      type: SHAPELESS
+      amount: 4
+      result: COBBLESTONE
+      recipe: STONE_SCRAP
+    iron_ingot:
+      type: SHAPELESS
+      amount: 10
+      result: IRON_INGOT
+      recipe: IRON_SCRAP
+    gold_ingot:
+      type: SHAPELESS
+      amount: 13
+      result: GOLD_INGOT
+      recipe: GOLD_SCRAP
+    diamond:
+      type: SHAPELESS
+      amount: 16
+      result: DIAMOND
+      recipe: DIAMOND_SCRAP

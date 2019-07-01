@@ -26,19 +26,17 @@ public class PSPlayer {
 		final File pf = new File(dataFolder, uuid.toString() + ".yml");
 
 		if (!players.containsKey(uuid)) {
-			if (!pf.exists()) {
+			if (!pf.exists())
 				try {
 					final File folder = new File(PSPlayer.dataFolder);
-					if (!folder.exists()) {
+					if (!folder.exists())
 						folder.mkdir();
-					}
 					pf.createNewFile();
-				} catch (IOException e) {
+				} catch (final IOException e) {
 					e.printStackTrace();
-					Utils.sendConsole("&cFailed to create player data file for "
-							+ Bukkit.getPlayer(uuid).getName(), false);
+					Utils.sendConsole("&cFailed to create player data file for " + Bukkit.getPlayer(uuid).getName(),
+							false);
 				}
-			}
 
 			file = new File(dataFolder, uuid.toString() + ".yml");
 			config = YamlConfiguration.loadConfiguration(file);
@@ -54,7 +52,7 @@ public class PSPlayer {
 		try {
 			config.save(file);
 			config = YamlConfiguration.loadConfiguration(file);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			Utils.sendConsole("&cFailed to save player data for " + Bukkit.getPlayer(uuid).getName(), true);
 			e.printStackTrace();
 		}
@@ -67,5 +65,5 @@ public class PSPlayer {
 	public YamlConfiguration getConfig() {
 		return config;
 	}
-	
+
 }

@@ -1,5 +1,6 @@
 package me.puyodead1.cosmicnodes.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,56 +8,56 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import lombok.Getter;
+
 public class Utils {
 
+	@Getter
 	private final static String prefix = "&7[&bCosmicNodes&7] ";
-
-	public static String getPrefix() {
-		return prefix;
-	}
 
 	public static String formatText(String text) {
 		return ChatColor.translateAlternateColorCodes('&', text);
 	}
 
+	public static List<String> formatText(List<String> text) {
+		final List<String> formattedText = new ArrayList<String>();
+		for (final String s : text)
+			formattedText.add(formatText(s));
+		return formattedText;
+	}
+
 	public static void sendMessage(Player player, String text, boolean prefix) {
-		if (prefix) {
+		if (prefix)
 			player.sendMessage(formatText(getPrefix() + text));
-		} else {
+		else
 			player.sendMessage(formatText(text));
-		}
 	}
 
 	public static void sendMessage(Player player, List<String> text, boolean prefix) {
-		if (prefix) {
-			for (String s : text) {
+		if (prefix)
+			for (final String s : text)
 				player.sendMessage(formatText(getPrefix() + s));
-			}
-		} else {
-			for (String s : text) {
+		else
+			for (final String s : text)
 				player.sendMessage(formatText(s));
-			}
-		}
 	}
 
 	public static void sendConsole(String text, boolean prefix) {
-		if (prefix) {
+		if (prefix)
 			Bukkit.getConsoleSender().sendMessage(formatText(getPrefix() + text));
-		} else {
+		else
 			Bukkit.getConsoleSender().sendMessage(formatText(text));
-		}
 	}
 
 	public static void sendConsole(String text, long time, boolean prefix) {
-		if (prefix) {
+		if (prefix)
 			Bukkit.getConsoleSender().sendMessage(
 					formatText(getPrefix() + text + " &e(took " + (System.currentTimeMillis() - time) + "ms)"));
-		} else {
+		else
 			Bukkit.getConsoleSender()
 					.sendMessage(formatText(text + " &e(took " + (System.currentTimeMillis() - time) + "ms)"));
-		}
 	}
-	
+
 	public static String capitalizeFirstLetter(String text) {
 		return text.substring(0, 1).toUpperCase() + text.toLowerCase().substring(1);
 	}
@@ -65,10 +66,11 @@ public class Utils {
 	 * From RandomSky by RandomHashTags
 	 */
 	public static String getRemainingTime(long time) {
-		int sec = (int) TimeUnit.MILLISECONDS.toSeconds(time), min = sec / 60, hr = min / 60, d = hr / 24;
+		int sec = (int) TimeUnit.MILLISECONDS.toSeconds(time), min = sec / 60, hr = min / 60;
+		final int d = hr / 24;
 		hr -= d * 24;
-		min -= (hr * 60) + (d * 60 * 24);
-		sec -= (min * 60) + (hr * 60 * 60) + (d * 60 * 60 * 24);
+		min -= hr * 60 + d * 60 * 24;
+		sec -= min * 60 + hr * 60 * 60 + d * 60 * 60 * 24;
 		final String dys = d > 0 ? d + "d " : "";
 		final String hrs = hr > 0 ? hr + "h" + " " : "";
 		final String mins = min != 0 ? min + "m " : "";
@@ -94,9 +96,8 @@ public class Utils {
 			l += getRemainingDouble(s[0]) * 1000 * 60;
 			input = s.length > 1 ? s[1] : input;
 		}
-		if (input.contains("s")) {
+		if (input.contains("s"))
 			l += getRemainingDouble(input.split("s")[0]) * 1000;
-		}
 		return l;
 	}
 
